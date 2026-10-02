@@ -13,8 +13,8 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::get('/counter', Counter::class)
-    ->middleware(['auth'])
-    ->name('counter');
+// Route::get('/counter', Counter::class)
+//     ->middleware(['auth'])
+//     ->name('counter');
 
 require __DIR__.'/auth.php';
