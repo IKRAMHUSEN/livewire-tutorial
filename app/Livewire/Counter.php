@@ -9,6 +9,6 @@ class Counter extends Component
 {
     public function render(): View
     {
-        return view('livewire.counter')->layout('layouts.guest');
+        return view('livewire.counter')->layout('layouts.app');
     }
 }
