@@ -26,6 +26,7 @@ class PhotoUpload extends Component
         ]);
         session()->flash('message', 'Photo uploaded successfully.');
         session()->flash('error', 'Photo not uploaded successfully.');
+        return redirect()->route('success');
         Info($image);
     }
 }
