@@ -5,7 +5,8 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        {{ __('List of Posts') }}
+    <div class="py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
+        {{-- {{ __('List of Posts') }} --}}
+        <livewire:posts />
     </div>
 </x-app-layout>
