@@ -16,7 +16,7 @@
                 @endforeach
             </select>
 
-            @error('name')
+            @error('category')
                 <span class="text-sm text-red-500">{{ $message }}</span>
             @enderror
         </div>
@@ -77,5 +77,8 @@
 
     </form>
 
-
 </div>
+
+@script
+
+@endscript

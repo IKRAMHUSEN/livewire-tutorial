@@ -33,6 +33,11 @@ Route::get('/posts', [App\Http\Controllers\HomeController::class, 'posts'])
     ->middleware(['auth'])
     ->name('posts');
 
+Route::get('/events', [App\Http\Controllers\HomeController::class, 'events'])
+    ->middleware(['auth'])
+    ->name('events');
+
+
 // Route::get('/counter', Counter::class)
 //     ->middleware(['auth'])
 //     ->name('counter');

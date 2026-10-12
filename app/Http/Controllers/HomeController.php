@@ -19,4 +19,9 @@ class HomeController extends Controller
     {
         return view('posts');
     }
+
+    public function events()
+    {
+        return view('event');
+    }
 }

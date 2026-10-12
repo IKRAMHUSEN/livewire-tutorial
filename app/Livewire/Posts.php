@@ -4,21 +4,28 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use Livewire\WithPagination;
 
 class Posts extends Component
 {
-    public $posts;
+    use WithPagination;
     public $title;
     public $body;
     public $postAdd = false;
     public $postUpdate = false;
     public  $postId;
+    public $search;
 
     public function render()
     {
-        $this->posts = Post::all();
-        return view('livewire.posts');
+        return view('livewire.posts', [
+            'posts' => Post::latest()
+                ->where('title', 'like', '%' . $this->search . '%')
+                ->orWhere('body', 'like', '%' . $this->search . '%')
+                ->paginate(5),
+        ]);
     }
+
 
     public function createPost()
     {

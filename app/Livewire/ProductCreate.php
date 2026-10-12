@@ -5,6 +5,7 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 
+
 class ProductCreate extends Component
 {
     public $name;
@@ -16,14 +17,15 @@ class ProductCreate extends Component
     {
         return view('livewire.product-create');
     }
-    public function submit(){
+    public function submit()
+    {
         $this->validate([
             'name' => 'required',
             'price' => 'required|numeric',
             'detail' => 'required',
-            'category' => 'nullable'
+            'category' => 'required'
         ]);
-       $product = Product::create([
+        $product = Product::create([
             'name' => $this->name,
             'price' => $this->price,
             'detail' => $this->detail,
@@ -31,18 +33,19 @@ class ProductCreate extends Component
         ]);
         Info($product);
     }
-    public function resetInputFields(){
+    public function resetInputFields()
+    {
         $this->name = '';
         $this->price = '';
         $this->detail = '';
         $this->category = '';
     }
-    public function loadCategories(){
+    public function loadCategories()
+    {
         Info('loadCategories called');
 
         $categories = Product::all();
         // dd($categories);
         $this->categories = $categories;
-
     }
 }

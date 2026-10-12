@@ -17,6 +17,10 @@
             </button>
         </div>
     @endif
+    <div class="mb-3">
+        <input type="text" wire:model.live="search" placeholder="Search posts..."
+            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 sm:text-sm">
+    </div>
     <div class="overflow-x-auto">
         <table class="w-full table-auto border-collapse border border-gray-300">
             <thead class="bg-gray-100">
@@ -41,7 +45,8 @@
                                     class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded">
                                     Edit
                                 </button>
-                                <button wire:confirm="Are you sure you want to delete this post?" wire:click="deletePost({{ $post->id }})"
+                                <button wire:confirm="Are you sure you want to delete this post?"
+                                    wire:click="deletePost({{ $post->id }})"
                                     class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
                                     Delete
                                 </button>
@@ -55,5 +60,8 @@
                 @endif
             </tbody>
         </table>
+
+        {{ $posts->links() }}
+
     </div>
 </div>
